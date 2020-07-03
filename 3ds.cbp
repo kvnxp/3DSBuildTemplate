@@ -5,23 +5,15 @@
 		<Option title="3DS" />
 		<Option makefile_is_custom="1" />
 		<Option pch_mode="2" />
-		<Option compiler="gcc" />
+		<Option compiler="nintendo_3ds" />
 		<Build>
-			<Target title="release">
-				<Option type="4" />
-				<Option compiler="gcc" />
-				<MakeCommands>
-					<Build command="$make -f $makefile" />
-					<CompileFile command="$make -f $makefile source/$file" />
-					<Clean command="$make -f $makefile clean" />
-					<DistClean command="$make -f $makefile distclean$target" />
-					<AskRebuildNeeded command="$make -q -f $makefile $target" />
-					<SilentBuild command="$make -f $makefile &gt; $(CMD_NULL)" />
-				</MakeCommands>
-			</Target>
 			<Target title="3dsx">
-				<Option type="4" />
-				<Option compiler="gcc" />
+				<Option output="output/build.elf" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="output" />
+				<Option object_output=".objs" />
+				<Option type="1" />
+				<Option compiler="nintendo_3ds" />
+				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>
@@ -39,7 +31,7 @@
 			</Target>
 			<Target title="cia">
 				<Option type="4" />
-				<Option compiler="gcc" />
+				<Option compiler="nintendo_3ds" />
 				<MakeCommands>
 					<Build command="$make -f $makefile $target" />
 					<CompileFile command="$make -f $makefile source/$file" />
@@ -51,7 +43,7 @@
 			</Target>
 			<Target title="3ds">
 				<Option type="4" />
-				<Option compiler="gcc" />
+				<Option compiler="nintendo_3ds" />
 				<MakeCommands>
 					<Build command="$make -f $makefile $target" />
 					<CompileFile command="$make -f $makefile source/$file" />
@@ -63,7 +55,7 @@
 			</Target>
 			<Target title="elf">
 				<Option type="4" />
-				<Option compiler="gcc" />
+				<Option compiler="nintendo_3ds" />
 				<MakeCommands>
 					<Build command="$make -f $makefile $target" />
 					<CompileFile command="$make -f $makefile source/$file" />
@@ -75,7 +67,7 @@
 			</Target>
 			<Target title="citra">
 				<Option type="4" />
-				<Option compiler="gcc" />
+				<Option compiler="nintendo_3ds" />
 				<MakeCommands>
 					<Build command="$make -f $makefile $target" />
 					<CompileFile command="$make -f $makefile source/$file" />
@@ -87,7 +79,7 @@
 			</Target>
 			<Target title="3dsxlink">
 				<Option type="4" />
-				<Option compiler="gcc" />
+				<Option compiler="nintendo_3ds" />
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>
@@ -105,7 +97,7 @@
 			</Target>
 			<Target title="spunch">
 				<Option type="4" />
-				<Option compiler="gcc" />
+				<Option compiler="nintendo_3ds" />
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>
@@ -119,6 +111,18 @@
 					<DistClean command="$make -f $makefile distclean$target" />
 					<AskRebuildNeeded command="$make -q -f $makefile $target" />
 					<SilentBuild command="$make -f $makefile $target &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+			<Target title="release">
+				<Option type="4" />
+				<Option compiler="nintendo_3ds" />
+				<MakeCommands>
+					<Build command="$make -f $makefile" />
+					<CompileFile command="$make -f $makefile source/$file" />
+					<Clean command="$make -f $makefile clean" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="$make -q -f $makefile $target" />
+					<SilentBuild command="$make -f $makefile &gt; $(CMD_NULL)" />
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -139,10 +143,12 @@
 			<Option target="spunch" />
 		</Unit>
 		<Extensions>
-			<code_completion />
-			<envvars />
+			<debugger>
+				<remote_debugging target="3dsx">
+					<options conn_type="0" ip_address="127.0.0.1" ip_port="12345" additional_shell_cmds_before="citra -g 12345 $(PROJECT_DIR)/output/build.elf &amp;&#x0A;sleep 2" />
+				</remote_debugging>
+			</debugger>
 			<lib_finder disable_auto="1" />
-			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

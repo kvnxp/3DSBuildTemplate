@@ -1,5 +1,8 @@
 .SUFFIXES:
 
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=/opt/devkitpro/devkitARM
+
 #---------------------------------------------------------------------------------
 # Environment Setup
 #---------------------------------------------------------------------------------
@@ -23,7 +26,7 @@ BUILD := build
 OUTPUT := output
 SOURCES := source
 DATA := data
-INCLUDES := $(SOURCES) include
+INCLUDES := $(SOURCES) include .
 ROMFS := romfs
 RESOURCES := resources
 
@@ -170,7 +173,8 @@ endif
 
 EMPTY :=
 SPACE := $(EMPTY) $(EMPTY)
-OUTPUT_NAME := $(subst $(SPACE),,$(APP_TITLE))
+#OUTPUT_NAME := $(subst $(SPACE),,$(APP_TITLE))
+OUTPUT_NAME := build
 OUTPUT_DIR := $(TOPDIR)/$(OUTPUT)
 OUTPUT_FILE := $(OUTPUT_DIR)/$(OUTPUT_NAME)
 
