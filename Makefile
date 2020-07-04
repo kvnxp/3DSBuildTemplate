@@ -1,7 +1,7 @@
 .SUFFIXES:
-
-export DEVKITPRO=/opt/devkitpro
-export DEVKITARM=/opt/devkitpro/devkitARM
+DEVKITARM=/opt/devkitpro/devkitARM
+DEVKITPPC=/opt/devkitpro/devkitPPC
+DEVKITPRO=/opt/devkitpro
 
 #---------------------------------------------------------------------------------
 # Environment Setup
@@ -22,7 +22,7 @@ IP3DS := 192.168.1.11
 #---------------------------------------------------------------------------------
 # Directory Setup
 #---------------------------------------------------------------------------------
-BUILD := app
+BUILD := build
 OUTPUT := output
 SOURCES := source
 DATA := data
