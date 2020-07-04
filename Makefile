@@ -22,7 +22,7 @@ IP3DS := 192.168.1.11
 #---------------------------------------------------------------------------------
 # Directory Setup
 #---------------------------------------------------------------------------------
-BUILD := build
+BUILD := app
 OUTPUT := output
 SOURCES := source
 DATA := data
@@ -174,7 +174,7 @@ endif
 EMPTY :=
 SPACE := $(EMPTY) $(EMPTY)
 #OUTPUT_NAME := $(subst $(SPACE),,$(APP_TITLE))
-OUTPUT_NAME := build
+OUTPUT_NAME := app
 OUTPUT_DIR := $(TOPDIR)/$(OUTPUT)
 OUTPUT_FILE := $(OUTPUT_DIR)/$(OUTPUT_NAME)
 
